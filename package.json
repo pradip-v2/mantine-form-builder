@@ -1,7 +1,12 @@
 {
   "name": "mantine-form-builder",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
+  "author": {
+    "name": "Pradip Bankar",
+    "email": "pradipbankar0097@gmail.com",
+    "url": "https://github.com/pradip-v2"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
