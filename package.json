@@ -1,7 +1,6 @@
 {
   "name": "mantine-form-builder",
-  "private": false,
-  "version": "0.0.1",
+  "version": "0.0.9",
   "author": {
     "name": "Pradip Bankar",
     "email": "pradipbankar0097@gmail.com",
@@ -10,7 +9,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && tsup",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -36,8 +35,15 @@
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
+    "tsup": "^8.4.0",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
-  }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
 }

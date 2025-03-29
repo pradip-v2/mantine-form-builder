@@ -1,10 +1,13 @@
 import {
+  Button,
   Card,
   Checkbox,
+  CloseButton,
   Fieldset,
   Flex,
   Grid,
   Input,
+  MantineProvider,
   NumberInput,
   Select,
 } from "@mantine/core";
@@ -16,7 +19,7 @@ import { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import cx from "clsx";
 import { useListState } from "@mantine/hooks";
-import { IconGripVertical } from "@tabler/icons-react";
+import { IconGripVertical, IconPlus } from "@tabler/icons-react";
 import classes from "./DndListHandle.module.css";
 
 interface FormBuilderProps {
@@ -31,45 +34,47 @@ const FormBuilder: React.FC<FormBuilderProps> = ({
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <Grid>
-      <Grid.Col span={12}>Header</Grid.Col>
-      <Grid.Col span={3}>
-        {active !== null && (
-          <FieldEditForm
-            values={dataTemp.fields[active]}
-            onChange={function (values: InputField): void {
-              onChange({
-                fields: dataTemp.fields.map((field, index) => {
-                  if (index === active) return values;
-                  return field;
-                }),
-              });
-            }}
-          />
-        )}
-      </Grid.Col>
-      <Grid.Col span={9}>
-        <InputFieldsContainer>
-          {dataTemp?.fields?.map((field, inx) => {
-            return (
-              <ComponentEditWrapper
-                key={`field-${inx}`}
-                isActive={active === inx}
-                field={field}
-                onClick={() => {
-                  setActive(inx);
-                }}
-              >
-                {field?.type === "text" && <InputEdit />}
-                {field?.type === "select" && (
-                  <SelectEdit selectProps={{ data: field.config.options }} />
-                )}
-              </ComponentEditWrapper>
-            );
-          })}
-        </InputFieldsContainer>
-      </Grid.Col>
-    </Grid>
+    <MantineProvider>
+      <Grid>
+        <Grid.Col span={12}>Header</Grid.Col>
+        <Grid.Col span={3}>
+          {active !== null && (
+            <FieldEditForm
+              values={dataTemp.fields[active]}
+              onChange={function (values: InputField): void {
+                onChange({
+                  fields: dataTemp.fields.map((field, index) => {
+                    if (index === active) return values;
+                    return field;
+                  }),
+                });
+              }}
+            />
+          )}
+        </Grid.Col>
+        <Grid.Col span={9}>
+          <InputFieldsContainer>
+            {dataTemp?.fields?.map((field, inx) => {
+              return (
+                <ComponentEditWrapper
+                  key={`field-${inx}`}
+                  isActive={active === inx}
+                  field={field}
+                  onClick={() => {
+                    setActive(inx);
+                  }}
+                >
+                  {field?.type === "text" && <InputEdit />}
+                  {field?.type === "select" && (
+                    <SelectEdit selectProps={{ data: field.config.options }} />
+                  )}
+                </ComponentEditWrapper>
+              );
+            })}
+          </InputFieldsContainer>
+        </Grid.Col>
+      </Grid>
+    </MantineProvider>
   );
 };
 
@@ -82,16 +87,6 @@ interface FieldEditFormProps {
   values: InputField;
   onChange: (values: InputField) => void;
 }
-
-/*
-    type: string;
-    config: {
-        label: string;
-        required: boolean;
-        span: number;
-        defaultValue: string;
-    };
-*/
 
 const FieldEditForm: React.FC<FieldEditFormProps> = ({ values, onChange }) => {
   const [state, handlers] = useListState(values.config.options ?? []);
@@ -138,6 +133,11 @@ const FieldEditForm: React.FC<FieldEditFormProps> = ({ values, onChange }) => {
               });
             }}
           />
+          <CloseButton
+            onClick={() => {
+              handlers.remove(index);
+            }}
+          />
         </div>
       )}
     </Draggable>
@@ -155,7 +155,7 @@ const FieldEditForm: React.FC<FieldEditFormProps> = ({ values, onChange }) => {
             ]}
             value={values.type}
             clearable={false}
-            onChange={(value) => {
+            onChange={(value: any) => {
               onChange({ ...values, type: value! });
             }}
           />
@@ -180,6 +180,21 @@ const FieldEditForm: React.FC<FieldEditFormProps> = ({ values, onChange }) => {
                   )}
                 </Droppable>
               </DragDropContext>
+              <Button
+                leftSection={<IconPlus />}
+                onClick={() => {
+                  handlers.append({
+                    id: new Date().getTime(),
+                    position: (values.config?.options ?? []).length + 1,
+                    label:
+                      "Option" + ((values.config?.options ?? []).length + 1),
+                    value:
+                      "Option" + ((values.config?.options ?? []).length + 1),
+                  });
+                }}
+              >
+                Add Option
+              </Button>
             </Flex>
           </Fieldset>
         )}
