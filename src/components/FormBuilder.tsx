@@ -39,17 +39,61 @@ const FormBuilder: React.FC<FormBuilderProps> = ({
         <Grid.Col span={12}>Header</Grid.Col>
         <Grid.Col span={3}>
           {active !== null && (
-            <FieldEditForm
-              values={dataTemp.fields[active]}
-              onChange={function (values: InputField): void {
-                onChange({
-                  fields: dataTemp.fields.map((field, index) => {
-                    if (index === active) return values;
-                    return field;
-                  }),
-                });
-              }}
-            />
+            <Flex direction={"column"} gap={"sm"}>
+              <Button
+                onClick={() => {
+                  onChange({
+                    fields: [
+                      {
+                        type: "text",
+                        config: {
+                          label: "Label",
+                          required: false,
+                          span: 3,
+                          defaultValue: "default value",
+                          options: undefined,
+                        },
+                      },
+                      ...dataTemp.fields,
+                    ],
+                  });
+                }}
+              >
+                Add a field before
+              </Button>
+              <FieldEditForm
+                values={dataTemp.fields[active]}
+                onChange={function (values: InputField): void {
+                  onChange({
+                    fields: dataTemp.fields.map((field, index) => {
+                      if (index === active) return values;
+                      return field;
+                    }),
+                  });
+                }}
+              />
+              <Button
+                onClick={() => {
+                  onChange({
+                    fields: [
+                      ...dataTemp.fields,
+                      {
+                        type: "text",
+                        config: {
+                          label: "Label",
+                          required: false,
+                          span: 3,
+                          defaultValue: "default value",
+                          options: undefined,
+                        },
+                      },
+                    ],
+                  });
+                }}
+              >
+                Add a field after
+              </Button>
+            </Flex>
           )}
         </Grid.Col>
         <Grid.Col span={9}>
@@ -144,7 +188,7 @@ const FieldEditForm: React.FC<FieldEditFormProps> = ({ values, onChange }) => {
   ));
 
   return (
-    <Card>
+    <Card withBorder>
       <Flex direction={"column"} gap={"sm"}>
         <Input.Wrapper label={"Type"}>
           <Select
