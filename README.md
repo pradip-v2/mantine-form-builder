@@ -1,6 +1,11 @@
 # Mantine Form Builder
 
+[![npm version](https://img.shields.io/npm/v/mantine-form-builder.svg)](https://www.npmjs.com/package/mantine-form-builder)
+[![npm downloads](https://img.shields.io/npm/dm/mantine-form-builder.svg)](https://www.npmjs.com/package/mantine-form-builder)
+
 A powerful, drag-and-drop form builder component built with [Mantine UI](https://mantine.dev/) and React. Create dynamic forms with ease using an intuitive visual interface.
+
+📦 **Package**: [mantine-form-builder on npm](https://www.npmjs.com/package/mantine-form-builder)
 
 ## Features
 
