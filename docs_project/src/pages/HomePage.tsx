@@ -42,6 +42,10 @@ export default function HomePage() {
               leftSection={<Download size={20} />}
               component={Link}
               to="/getting-started"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/getting-started");
+              }}
             >
               Get Started
             </Button>
