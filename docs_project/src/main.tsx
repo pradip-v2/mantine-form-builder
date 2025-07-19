@@ -10,7 +10,17 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <MantineProvider>
+    <MantineProvider
+      theme={{
+        breakpoints: {
+          xs: '36em',
+          sm: '48em',
+          md: '62em',
+          lg: '75em',
+          xl: '88em',
+        },
+      }}
+    >
       <Notifications />
       <BrowserRouter>
         <App />

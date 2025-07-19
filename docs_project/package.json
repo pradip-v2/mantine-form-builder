@@ -14,10 +14,11 @@
     "@mantine/dates": "^8",
     "@mantine/hooks": "^8",
     "@mantine/notifications": "^8",
-
     "@phosphor-icons/react": "^2.1.10",
     "axios": "^1.10.0",
+    "dayjs": "^1.11.13",
     "formik": "^2.4.6",
+    "mantine-form-builder": "^0.1.18",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^6.28.0",
@@ -34,4 +35,4 @@
     "typescript": "^5.8.3",
     "vite": "^6.0.0"
   }
-} 
+}

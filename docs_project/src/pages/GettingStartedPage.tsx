@@ -1,4 +1,4 @@
-import { Container, Title, Text, Stack, Card, Code, Alert } from '@mantine/core'
+import { Container, Title, Text, Stack, Card, Code, Alert, ScrollArea } from '@mantine/core'
 import { Warning } from '@phosphor-icons/react'
 
 export default function GettingStartedPage() {
@@ -50,7 +50,7 @@ function App() {
 }`
 
   return (
-    <Container size="lg">
+    <Container size="lg" px="xs">
       <Stack gap="xl">
         <Stack gap="md">
           <Title>Getting Started</Title>
@@ -66,9 +66,11 @@ function App() {
             <Text>
               Install the package using npm or yarn:
             </Text>
-            <Code block>
-              {installationCode}
-            </Code>
+            <ScrollArea>
+              <Code block>
+                {installationCode}
+              </Code>
+            </ScrollArea>
             
             <Alert icon={<Warning size={16} />} title="Dependencies" color="blue">
               Make sure you have the required dependencies installed. The FormBuilder component
@@ -76,9 +78,11 @@ function App() {
             </Alert>
             
             <Text fw={500}>Required Dependencies:</Text>
-            <Code block>
-              {dependenciesCode}
-            </Code>
+            <ScrollArea>
+              <Code block>
+                {dependenciesCode}
+              </Code>
+            </ScrollArea>
           </Stack>
         </Card>
 
@@ -89,9 +93,11 @@ function App() {
             <Text>
               Here's a simple example of how to use the FormBuilder component:
             </Text>
-            <Code block>
-              {basicUsageCode}
-            </Code>
+            <ScrollArea>
+              <Code block>
+                {basicUsageCode}
+              </Code>
+            </ScrollArea>
           </Stack>
         </Card>
 

@@ -38,6 +38,8 @@ pre {
   border-radius: 6px;
   padding: 16px;
   overflow-x: auto;
+  font-size: 0.875em;
+  line-height: 1.5;
 }
 
 code {
@@ -49,6 +51,7 @@ code {
 table {
   border-collapse: collapse;
   width: 100%;
+  min-width: 600px; /* Ensure tables don't get too cramped */
 }
 
 th, td {
@@ -70,4 +73,62 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  /* Adjust table display on mobile */
+  table {
+    font-size: 0.875em;
+  }
+  
+  th, td {
+    padding: 8px;
+  }
+  
+  /* Improve code block readability on mobile */
+  pre {
+    padding: 12px;
+    font-size: 0.8em;
+  }
+  
+  /* Ensure proper spacing on mobile */
+  .mantine-Container-root {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  
+  /* Improve button spacing on mobile */
+  .mantine-Group-root {
+    gap: 8px !important;
+  }
+  
+  /* Better form field spacing */
+  .mantine-TextInput-root,
+  .mantine-Select-root,
+  .mantine-Textarea-root {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  table {
+    font-size: 0.8em;
+  }
+  
+  th, td {
+    padding: 6px;
+  }
+  
+  pre {
+    padding: 8px;
+    font-size: 0.75em;
+  }
+  
+  /* Ensure buttons don't overflow */
+  .mantine-Button-root {
+    font-size: 0.875em;
+    padding: 8px 12px;
+  }
 } 

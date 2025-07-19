@@ -1,8 +1,8 @@
-import { Container, Title, Text, Stack, Card, Table, Code, Badge } from '@mantine/core'
+import { Container, Title, Text, Stack, Card, Table, Code, Badge, ScrollArea } from '@mantine/core'
 
 export default function ApiPage() {
   return (
-    <Container size="lg">
+    <Container size="lg" px="xs">
       <Stack gap="xl">
         <Stack gap="md">
           <Title>API Reference</Title>
@@ -15,36 +15,38 @@ export default function ApiPage() {
         <Card shadow="sm" padding="xl" radius="md" withBorder>
           <Stack gap="md">
             <Title order={2}>FormBuilder Props</Title>
-            <Table>
-              <Table.Thead>
-                <Table.Tr>
-                  <Table.Th>Prop</Table.Th>
-                  <Table.Th>Type</Table.Th>
-                  <Table.Th>Required</Table.Th>
-                  <Table.Th>Description</Table.Th>
-                </Table.Tr>
-              </Table.Thead>
-              <Table.Tbody>
-                <Table.Tr>
-                  <Table.Td><Code>onSave</Code></Table.Td>
-                  <Table.Td><Code>(value: CustomFormRequest) =&gt; Promise&lt;any&gt;</Code></Table.Td>
-                  <Table.Td><Badge color="red">Yes</Badge></Table.Td>
-                  <Table.Td>Function called when the form is saved</Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>onCancel</Code></Table.Td>
-                  <Table.Td><Code>() =&gt; void</Code></Table.Td>
-                  <Table.Td><Badge color="red">Yes</Badge></Table.Td>
-                  <Table.Td>Function called when the form is cancelled</Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>initialData</Code></Table.Td>
-                  <Table.Td><Code>CustomFormRequest</Code></Table.Td>
-                  <Table.Td><Badge color="gray">No</Badge></Table.Td>
-                  <Table.Td>Initial form data to populate the builder</Table.Td>
-                </Table.Tr>
-              </Table.Tbody>
-            </Table>
+            <ScrollArea>
+              <Table>
+                <Table.Thead>
+                  <Table.Tr>
+                    <Table.Th>Prop</Table.Th>
+                    <Table.Th>Type</Table.Th>
+                    <Table.Th>Required</Table.Th>
+                    <Table.Th>Description</Table.Th>
+                  </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>
+                  <Table.Tr>
+                    <Table.Td><Code>onSave</Code></Table.Td>
+                    <Table.Td><Code>(value: CustomFormRequest) =&gt; Promise&lt;any&gt;</Code></Table.Td>
+                    <Table.Td><Badge color="red">Yes</Badge></Table.Td>
+                    <Table.Td>Function called when the form is saved</Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>onCancel</Code></Table.Td>
+                    <Table.Td><Code>() =&gt; void</Code></Table.Td>
+                    <Table.Td><Badge color="red">Yes</Badge></Table.Td>
+                    <Table.Td>Function called when the form is cancelled</Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>initialData</Code></Table.Td>
+                    <Table.Td><Code>CustomFormRequest</Code></Table.Td>
+                    <Table.Td><Badge color="gray">No</Badge></Table.Td>
+                    <Table.Td>Initial form data to populate the builder</Table.Td>
+                  </Table.Tr>
+                </Table.Tbody>
+              </Table>
+            </ScrollArea>
           </Stack>
         </Card>
 
@@ -114,62 +116,64 @@ export default function ApiPage() {
         <Card shadow="sm" padding="xl" radius="md" withBorder>
           <Stack gap="md">
             <Title order={2}>Supported Field Types</Title>
-            <Table>
-              <Table.Thead>
-                <Table.Tr>
-                  <Table.Th>Type</Table.Th>
-                  <Table.Th>Description</Table.Th>
-                  <Table.Th>Supports Options</Table.Th>
-                </Table.Tr>
-              </Table.Thead>
-              <Table.Tbody>
-                <Table.Tr>
-                  <Table.Td><Code>text</Code></Table.Td>
-                  <Table.Td>Single line text input</Table.Td>
-                  <Table.Td><Badge color="gray">No</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>textarea</Code></Table.Td>
-                  <Table.Td>Multi-line text input</Table.Td>
-                  <Table.Td><Badge color="gray">No</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>select</Code></Table.Td>
-                  <Table.Td>Dropdown selection</Table.Td>
-                  <Table.Td><Badge color="green">Yes</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>multiselect</Code></Table.Td>
-                  <Table.Td>Multiple selection dropdown</Table.Td>
-                  <Table.Td><Badge color="green">Yes</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>radio</Code></Table.Td>
-                  <Table.Td>Radio button group</Table.Td>
-                  <Table.Td><Badge color="green">Yes</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>checkbox</Code></Table.Td>
-                  <Table.Td>Checkbox input</Table.Td>
-                  <Table.Td><Badge color="gray">No</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>date</Code></Table.Td>
-                  <Table.Td>Date picker</Table.Td>
-                  <Table.Td><Badge color="gray">No</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>datetime</Code></Table.Td>
-                  <Table.Td>Date and time picker</Table.Td>
-                  <Table.Td><Badge color="gray">No</Badge></Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td><Code>heading</Code></Table.Td>
-                  <Table.Td>Section heading</Table.Td>
-                  <Table.Td><Badge color="gray">No</Badge></Table.Td>
-                </Table.Tr>
-              </Table.Tbody>
-            </Table>
+            <ScrollArea>
+              <Table>
+                <Table.Thead>
+                  <Table.Tr>
+                    <Table.Th>Type</Table.Th>
+                    <Table.Th>Description</Table.Th>
+                    <Table.Th>Supports Options</Table.Th>
+                  </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>
+                  <Table.Tr>
+                    <Table.Td><Code>text</Code></Table.Td>
+                    <Table.Td>Single line text input</Table.Td>
+                    <Table.Td><Badge color="gray">No</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>textarea</Code></Table.Td>
+                    <Table.Td>Multi-line text input</Table.Td>
+                    <Table.Td><Badge color="gray">No</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>select</Code></Table.Td>
+                    <Table.Td>Dropdown selection</Table.Td>
+                    <Table.Td><Badge color="green">Yes</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>multiselect</Code></Table.Td>
+                    <Table.Td>Multiple selection dropdown</Table.Td>
+                    <Table.Td><Badge color="green">Yes</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>radio</Code></Table.Td>
+                    <Table.Td>Radio button group</Table.Td>
+                    <Table.Td><Badge color="green">Yes</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>checkbox</Code></Table.Td>
+                    <Table.Td>Checkbox input</Table.Td>
+                    <Table.Td><Badge color="gray">No</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>date</Code></Table.Td>
+                    <Table.Td>Date picker</Table.Td>
+                    <Table.Td><Badge color="gray">No</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>datetime</Code></Table.Td>
+                    <Table.Td>Date and time picker</Table.Td>
+                    <Table.Td><Badge color="gray">No</Badge></Table.Td>
+                  </Table.Tr>
+                  <Table.Tr>
+                    <Table.Td><Code>heading</Code></Table.Td>
+                    <Table.Td>Section heading</Table.Td>
+                    <Table.Td><Badge color="gray">No</Badge></Table.Td>
+                  </Table.Tr>
+                </Table.Tbody>
+              </Table>
+            </ScrollArea>
           </Stack>
         </Card>
 

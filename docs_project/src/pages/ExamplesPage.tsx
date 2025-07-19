@@ -1,8 +1,8 @@
 import { Container, Title, Text, Stack, Card, Tabs, Button, Group } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
 import { Check, X } from '@phosphor-icons/react'
-import FormBuilder from '../components/FormBuilder'
-import type { CustomFormRequest } from '../types'
+import { FormBuilder } from 'mantine-form-builder'
+import type { CustomFormRequest } from 'mantine-form-builder'
 
 export default function ExamplesPage() {
   const handleSave = async (formData: CustomFormRequest) => {
@@ -122,7 +122,7 @@ export default function ExamplesPage() {
   }
 
   return (
-    <Container size="lg">
+    <Container size="lg" px="xs">
       <Stack gap="xl">
         <Stack gap="md">
           <Title>Examples</Title>
@@ -131,8 +131,8 @@ export default function ExamplesPage() {
           </Text>
         </Stack>
 
-        <Tabs defaultValue="basic">
-          <Tabs.List>
+        <Tabs defaultValue="basic" variant="pills">
+          <Tabs.List style={{ flexWrap: 'wrap' }}>
             <Tabs.Tab value="basic">Basic Form</Tabs.Tab>
             <Tabs.Tab value="prefilled">Prefilled Form</Tabs.Tab>
             <Tabs.Tab value="empty">Empty Form</Tabs.Tab>
