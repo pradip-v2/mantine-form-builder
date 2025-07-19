@@ -40,7 +40,7 @@ export default function HomePage() {
             <Button
               size="lg"
               leftSection={<Download size={20} />}
-              onClick={() => navigate("/getting-started")}
+              onClick={() => navigate("/mantine-form-builder/getting-started")}
             >
               Get Started
             </Button>
