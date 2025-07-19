@@ -40,7 +40,8 @@ export default function HomePage() {
             <Button
               size="lg"
               leftSection={<Download size={20} />}
-              onClick={() => navigate("/mantine-form-builder/getting-started")}
+              component="a"
+              href="https://pradip-v2.github.io/mantine-form-builder/getting-started"
             >
               Get Started
             </Button>
