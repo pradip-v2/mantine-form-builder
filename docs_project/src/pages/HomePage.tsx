@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mantine/core";
 import { ArrowRight, Star, Download, GithubLogo } from "@phosphor-icons/react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -40,8 +40,8 @@ export default function HomePage() {
             <Button
               size="lg"
               leftSection={<Download size={20} />}
-              component="a"
-              href="https://pradip-v2.github.io/mantine-form-builder/getting-started"
+              component={Link}
+              to="/getting-started"
             >
               Get Started
             </Button>
