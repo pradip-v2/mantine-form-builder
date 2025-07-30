@@ -1,7 +1,7 @@
 import type {
-  FormResponsesCreateMutationRequest,
+FormResponseRequest as FormResponsesCreateMutationRequest,
   PatchedFormResponseRequest,
-} from "@/api";
+} from "@/types";
 import { getError } from "@/utility/error-utility";
 import {
   Grid,
@@ -18,14 +18,9 @@ import { useFormik } from "formik";
 import InputFieldsContainer from "../InputFieldsContainer";
 import * as Yup from "yup";
 import ComponentRenderWrapper from "./ComponentRenderWrapper";
-import CustomInput from "@/components/shared/custom-input";
-import CustomSelect from "@/components/shared/custom-select";
-import CustomMultiselect from "@/components/shared/custom-multiselect";
-import CustomCheckbox from "@/components/shared/custom-checkbox";
-import CustomDateInput from "@/components/shared/custom-date-input";
+import { Input as CustomInput , Select as CustomSelect , MultiSelect as CustomMultiselect , Checkbox as CustomCheckbox , Textarea as CustomTextarea } from "@mantine/core";
+import { DateInput as CustomDateInput, DateTimePicker as LabelledDateTimeInputAMPM } from "@mantine/dates";
 import dayjs from "dayjs";
-import LabelledDateTimeInputAMPM from "@/components/shared/custom-date-time-am-pm";
-import CustomTextarea from "@/components/shared/custom-text-area";
 
 const optionSchema = Yup.object().shape({
   id: Yup.number().required(),
@@ -114,9 +109,6 @@ export const RenderForm: React.FC<RenderFormProps> = ({
     },
   });
 
-  // console.log("errors", formik.errors);
-  // console.log("values", formik.values);
-
   return (
     <Grid w={"100%"}>
       <Grid.Col span={12}>
@@ -149,7 +141,7 @@ export const RenderForm: React.FC<RenderFormProps> = ({
                 {field?.type === "text" && (
                   <CustomInput
                     placeholder="Enter text"
-                    withAsterisk
+                    required={field.config.required}
                     value={field.response}
                     onChange={(e: any) => {
                       formik.setFieldValue(
@@ -164,7 +156,7 @@ export const RenderForm: React.FC<RenderFormProps> = ({
                 )}
                 {field?.type === "select" && (
                   <CustomSelect
-                    withAsterisk
+                    required={field.config.required}
                     placeholder="Select"
                     data={field.config.options ?? []}
                     value={field.response}
@@ -206,7 +198,7 @@ export const RenderForm: React.FC<RenderFormProps> = ({
                         </Text>
                       </Flex>
                     }
-                    value={field.response == "true" ? true : false}
+                    checked={field.response == "true"}
                     onChange={(e: any) => {
                       const value = e.currentTarget.checked;
                       formik.setFieldValue(
@@ -235,7 +227,7 @@ export const RenderForm: React.FC<RenderFormProps> = ({
                   >
                     <Group mt="xs">
                       {field.config.options?.map((item) => (
-                        <Radio value={item.value} label={item.label} />
+                        <Radio key={item.id.toString()} value={item.value} label={item.label} />
                       ))}
                     </Group>
                   </Radio.Group>

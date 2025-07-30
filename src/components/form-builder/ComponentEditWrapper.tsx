@@ -1,4 +1,4 @@
-import type { InputField } from "@/api";
+import type { InputField } from "@/types";
 import { Flex, Grid, Input, CloseButton, useMantineTheme } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
 

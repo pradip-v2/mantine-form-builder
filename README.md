@@ -5,7 +5,9 @@
 
 A powerful, drag-and-drop form builder component built with [Mantine UI](https://mantine.dev/) and React. Create dynamic forms with ease using an intuitive visual interface.
 
-📦 **Package**: [mantine-form-builder on npm](https://www.npmjs.com/package/mantine-form-builder)
+📦 **Package**: [mantine-form-builder on npm](https://www.npmjs.com/package/mantine-form-builder)  
+🏠 **Homepage**: [https://pradip-v2.github.io/mantine-form-builder/](https://pradip-v2.github.io/mantine-form-builder/)  
+📂 **Repository**: [https://github.com/pradip-v2/mantine-form-builder](https://github.com/pradip-v2/mantine-form-builder)
 
 ## Features
 

@@ -3,3 +3,7 @@ export * from "./InputFieldConfig";
 export * from "./TypeD59Enum";
 export * from "./CustomFormRequest";
 export * from "./FormTypeEnum";
+export * from "./FormResponseRequest";
+export * from "./PatchedFormResponseRequest";
+export * from "./InputFieldResponseRequest";
+export * from "./FormResponse";

@@ -1,5 +1,5 @@
 import { Flex, Grid, Text, Title, type TitleOrder } from "@mantine/core";
-import type { FormResponse } from "@/api";
+import type { FormResponse } from "@/types";
 import dayjs from "dayjs";
 
 interface ViewFormResponseProps {
@@ -11,7 +11,7 @@ const ViewFormResponse: React.FC<ViewFormResponseProps> = ({
 }) => {
   return (
     <Grid w={"100%"}>
-      <Grid.Col span={12}>
+      {/* <Grid.Col span={12}>
         <Flex justify={"space-between"} align={"center"}>
           <Flex>
             <Title order={3}>
@@ -19,7 +19,7 @@ const ViewFormResponse: React.FC<ViewFormResponseProps> = ({
             </Title>
           </Flex>
         </Flex>
-      </Grid.Col>
+      </Grid.Col> */}
       {formResponse?.response_fields?.map((field, inx) => {
         return (
           <Grid.Col key={`field-${inx}`} span={field?.config?.span ?? 12}>
