@@ -1,4 +1,4 @@
-import type { InputField } from "@/api";
+import type { InputField } from "@/types";
 import { Flex, Grid, Input } from "@mantine/core";
 import type React from "react";
 
