@@ -3755,6 +3755,16 @@ __metadata:
     typescript-eslint: "npm:^8.35.1"
     vite: "npm:^6.0.0"
     yup: "npm:^1.6.1"
+  peerDependencies:
+    "@hello-pangea/dnd": ^18.0.1
+    "@mantine/core": ^8
+    "@mantine/dates": ^8
+    "@mantine/hooks": ^8
+    "@phosphor-icons/react": ^2.1.10
+    axios: ^1.10.0
+    dayjs: ^1.11.13
+    formik: ^2.4.6
+    yup: ^1.6.1
   languageName: unknown
   linkType: soft
 
