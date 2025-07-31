@@ -13,7 +13,6 @@ import {
   Group,
   Text,
 } from "@mantine/core";
-import { showNotification } from "@mantine/notifications";
 import { useFormik } from "formik";
 import InputFieldsContainer from "../InputFieldsContainer";
 import * as Yup from "yup";
@@ -101,9 +100,8 @@ export const RenderForm: React.FC<RenderFormProps> = ({
     validationSchema,
     onSubmit: async (values, formikHelpers) => {
       return onSave(values).catch((err) => {
-        const { message, fieldErrors } = getError(err);
+        const { fieldErrors } = getError(err);
 
-        showNotification({ message });
         if (fieldErrors) formikHelpers.setErrors(fieldErrors);
       });
     },

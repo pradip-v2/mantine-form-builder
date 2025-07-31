@@ -31,7 +31,6 @@ import { Formik, useFormikContext } from "formik";
 import * as Yup from "yup";
 
 import { getError } from "@/utility/error-utility";
-import { showNotification } from "@mantine/notifications";
 import MultiSelectEdit from "./editable-components/MultiselectEdit";
 import RadioEdit from "./editable-components/RadioEdit";
 import TextareaEdit from "./editable-components/TextareaEdit";
@@ -92,9 +91,8 @@ const FormBuilder: React.FC<FormBuilderProps> = ({
       })}
       onSubmit={async (values, formikHelpers) => {
         return onSave(values).catch((err) => {
-          const { message, fieldErrors } = getError(err);
+          const { fieldErrors } = getError(err);
 
-          showNotification({ message });
           if (fieldErrors) formikHelpers.setErrors(fieldErrors);
         });
       }}

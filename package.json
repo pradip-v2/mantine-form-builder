@@ -1,6 +1,6 @@
 {
   "name": "mantine-form-builder",
-  "version": "0.1.23",
+  "version": "0.1.28",
   "homepage": "https://pradip-v2.github.io/mantine-form-builder/",
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "@mantine/core": "^8",
     "@mantine/dates": "^8",
     "@mantine/hooks": "^8",
-    "@mantine/notifications": "^8",
     "@phosphor-icons/react": "^2.1.10",
     "axios": "^1.10.0",
     "dayjs": "^1.11.13",
@@ -58,5 +57,16 @@
   },
   "main": "dist/index.cjs",
   "module": "dist/index.js",
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "peerDependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
+    "@mantine/core": "^8",
+    "@mantine/dates": "^8",
+    "@mantine/hooks": "^8",
+    "@phosphor-icons/react": "^2.1.10",
+    "axios": "^1.10.0",
+    "dayjs": "^1.11.13",
+    "formik": "^2.4.6",
+    "yup": "^1.6.1"
+  }
 }
